@@ -10,6 +10,7 @@ Feature: search on google
   Examples:
   | page                  | field  | inputText | buttonID | resultNumber| resultValue |
   | http://www.google.com | lst-ib | STD       | lst-ib   | 3           | Common STDs |
+  | http://www.google.com | lst-ib | מתכון ללביבות | lst-ib | 1   | לביבות      |
 
 #  Scenario: search STR on google
 #    Given navigate to google on browser
