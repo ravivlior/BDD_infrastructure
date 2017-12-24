@@ -4,6 +4,10 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.json.*;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -17,9 +21,11 @@ import java.io.IOException;
 import java.util.List;
 
 public class googleTestSteps {
+
     private String searchText;
 
     private WebDriver driver = new ChromeDriver();
+
     @Given("^navigate to \"(.*)\" on browser$")
     public void navigate_to_URL_on_browser(String pathUrl) throws Throwable {
         driver.get(pathUrl);
@@ -28,7 +34,13 @@ public class googleTestSteps {
     }
 
     @When("^type into \"(.*)\" the \"(.*)\"$")
-    public void type_inputText_into_field(String fieldName, String inputText) throws Throwable {
+    public void type_inputText_into_field(String fieldNameParam, String inputText) throws Throwable {
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(new FileReader("/home/ravivl/IdeaProjects/BDD_infrastracture/src/main/java/com/BDD_infrastracture/ObjectRepository.json"));
+        JSONObject jsonObject = (JSONObject) obj;
+        String fieldName = (String) jsonObject.get(fieldNameParam);
+
+//        String fieldName = jsonObject.getJSONObject("google").getString("searchField");
         driver.findElement(By.id(fieldName)).sendKeys(inputText);
         searchText=inputText;
     }
@@ -41,9 +53,7 @@ public class googleTestSteps {
 
     @Then("^the \"(.*)\" from the list is \"(.*)\"$")
     public void the_n_result_in_the_List_equals_to_expected_output(int resultNumber, String resultValue) throws Throwable {
-        List<WebElement> results=driver.findElements(By.className("r"));
-        String bodyText = results.get(resultNumber).getText();
-//        String bodyText = driver.findElement(By.className("r")).getText();
+        String bodyText = driver.findElement(By.xpath("(//*[@class='r'])["+resultNumber+"]")).getText();
         Assert.assertTrue("Text not found!", bodyText.contains(resultValue));
     }
 
