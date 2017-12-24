@@ -36,12 +36,10 @@ public class googleTestSteps {
     @When("^type into \"(.*)\" the \"(.*)\"$")
     public void type_inputText_into_field(String fieldNameParam, String inputText) throws Throwable {
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(new FileReader("/home/ravivl/IdeaProjects/BDD_infrastracture/src/main/java/com/BDD_infrastracture/ObjectRepository.json"));
+        Object obj = parser.parse(new FileReader("src/main/ObjectRepository/GoogleObjectRepository.json"));
         JSONObject jsonObject = (JSONObject) obj;
         String fieldName = (String) jsonObject.get(fieldNameParam);
-
-//        String fieldName = jsonObject.getJSONObject("google").getString("searchField");
-        driver.findElement(By.id(fieldName)).sendKeys(inputText);
+        driver.findElement(By.xpath(fieldName)).sendKeys(inputText);
         searchText=inputText;
     }
 

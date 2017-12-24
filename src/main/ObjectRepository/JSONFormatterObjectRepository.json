@@ -1,0 +1,5 @@
+{
+  "textInputField": "//*[@id='inputeditor']/div/div[2]/div/div[2]/div",
+  "textOutputField": "//*[@id='outputeditor']/div/div[2]/textarea",
+  "jsonToXmlButton": "//*[@id='page-top']/header/div/div[2]/div[2]/button[5]"
+}
