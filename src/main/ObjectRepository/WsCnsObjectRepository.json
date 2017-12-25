@@ -1,0 +1,15 @@
+{
+  "userNameField": "//*[@id='root']/div/form/div[2]/input",
+  "passwordField": "//*[@id='root']/div/form/div[3]/div/input",
+  "startSessionButton": "//*[@id='root']/div/form/div[4]/button",
+  "addButton": "//*[@id='root']/div/div[2]/div[2]/div/span/span",
+  "addDropdown": "//body/div[5]/div/div/div/div",
+  "mainSearchField": "//*[@id='root']/div/div[2]/div[4]/div[1]/div[1]/input",
+  "personFirstNameField": "//*[@id='e4786639-ca9a-4158-b04c-046bab3da30d']",
+  "personLastNameField": "//*[@id='bd12c29a-d89c-4901-ac8d-41604beb1368']",
+  "personCancelButton": "//*[@id='root']/div/div[3]/div[1]/div/div/form/div/div[3]/button[2]",
+  "PersonCancelConformationNOButton": "//*[@id='root']/div/div[3]/div[1]/div/div[1]/div/div/div/div[2]/div/div[2]/button[2]",
+  "PersonCancelConformationNOButton": "//*[@id='root']/div/div[3]/div[1]/div/div[1]/div/div/div/div[2]/div/div[2]/button[1]",
+  "mainSearchList": "//*[@id='root']/div/div[3]/div[1]/div/div/div[2]/div"
+}
+
